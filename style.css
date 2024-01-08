@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "inter-regular";
+    src: url("./assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+    font-family: "inter-medium";
+    src: url("./assets/fonts/Inter-Medium.ttf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    
+}
+
+body {
+    font-family: "inter-regular";
+}
+
+.outer-container {
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #AE763B;
+    padding-left: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+header > h1 {
+    font-family: "inter-medium";
+    font-size: 2rem;
+    color: white;
+    
+}
+
+footer {
+    background-color: black;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > p {
+    color: white;
+    font-size: 1rem;
+}
+
+@media screen {
+    
+}
