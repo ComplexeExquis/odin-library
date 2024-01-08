@@ -6,6 +6,11 @@
     font-family: "inter-medium";
     src: url("./assets/fonts/Inter-Medium.ttf");
 }
+@font-face {
+    font-family: "inter-semibold";
+    src: url("./assets/fonts/Inter-SemiBold.ttf");
+}
+
 
 h1,
 h2,
@@ -41,6 +46,28 @@ header > h1 {
     
 }
 
+.content {
+    background-color: #F1F1F1;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-book-btn {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 1rem 1.75rem;
+    font-family: "inter-semibold";
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease;
+}
+.add-book-btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 footer {
     background-color: black;
     display: flex;
@@ -48,12 +75,12 @@ footer {
     justify-content: center;
     align-items: center;
 }
-
 footer > p {
     color: white;
     font-size: 1rem;
 }
 
+/* media queries for desktop layout (mobile first design) */
 @media screen {
     
 }
