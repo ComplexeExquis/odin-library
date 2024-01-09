@@ -16,28 +16,31 @@
         <section class="content">
             <button id="add-book-btn" class="add-book-btn">Add book</button>
             <dialog>
-                <form action="">
+                <form action="#" class="input-container">
                     <label for="book-name-input">Book name</label>
-                    <input type="text" name="book-name-input" id="book-name-input">
+                    <input type="text" name="book-name-input" id="book-name-input" class="text-input" required>
 
                     <label for="book-author-input">Book author</label>
-                    <input type="text" name="book-author-input" id="book-author-input">
+                    <input type="text" name="book-author-input" id="book-author-input" class="text-input" required>
                 
                     <label for="book-pages-input">Number of pages</label>
-                    <input type="number" name="book-pages-input" id="book-pages-input">
+                    <input type="number" name="book-pages-input" id="book-pages-input" min="1" class="text-input" required>
                     
                     <div>
                         <p>Have you read it?</p>
                         <label for="read">yes</label>
-                        <input type="radio" name="read-or-not-input" id="read" value="read">
+                        <input type="radio" name="read-or-not-input" id="read" value="read" checked="checked" class="radio-input">
                         <label for="unread">no</label>
-                        <input type="radio" name="read-or-not-input" id="unread" value="unread">
+                        <input type="radio" name="read-or-not-input" id="unread" value="unread" class="radio-input">
                     </div>
 
-                    <button id="submit-add-book-btn" type="submit">Add book</button>
+                    <div class="form-btn-container">
+                        <button id="submit-add-book-btn">Add book</button>
+                        <button id="close-add-book-btn">close</button>
+                    </div>
                 </form>
 
-                <button id="close-add-book-btn">close</button>
+                
             </dialog>
             
 

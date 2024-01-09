@@ -20,7 +20,6 @@ h5,
 h6,
 p {
     margin: 0;
-    
 }
 
 body {
@@ -30,7 +29,7 @@ body {
 
 .outer-container {
     display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 16fr 1fr;
     min-height: 100vh;
 }
 
@@ -43,8 +42,7 @@ header {
 header > h1 {
     font-family: "inter-medium";
     font-size: 2rem;
-    color: white;
-    
+    color: white;   
 }
 
 .content {
@@ -73,6 +71,29 @@ header > h1 {
 .add-book-btn:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+dialog {
+    border-radius: 8px;
+    border: 1px solid #AE763B;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 32px 16px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.text-input {
+    height: 2rem;
+    margin-top: 8px;
+}
+form > label,
+form > div > p {
+    margin-top: 16px;
+}
+.form-btn-container {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
 }
 .content-grid {
     align-self: stretch;
@@ -137,7 +158,8 @@ footer > a:hover {
     transform: scale(1.2);
 }
 
-/* media queries for desktop layout (mobile first design) */
-@media screen {
-    
-}
+@media only screen and (min-width: 640px) {
+    .outer-container {
+        grid-template-rows: 1fr 8fr 1fr;
+    }
+  }
