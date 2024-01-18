@@ -29,7 +29,7 @@ body {
 
 .outer-container {
     display: grid;
-    grid-template-rows: 1fr 16fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
     min-height: 100vh;
 }
 

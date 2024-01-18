@@ -1,19 +1,15 @@
+let myLibrary = [];
+
 const addBookBtn = document.querySelector("#add-book-btn");
 const confirmAddBookBtn = document.querySelector("#confirm-add-book-btn");
 const dialog = document.querySelector("dialog");
 const closeAddBookBtn = document.querySelector("#close-add-book-btn");
 
-addBookBtn.addEventListener("click", () => {
-    dialog.showModal();
-});
+addBookBtn.addEventListener("click", () => dialog.showModal() );
 
 confirmAddBookBtn.addEventListener("click", getUserInputAndCreateBook);
 
-closeAddBookBtn.addEventListener("click", () => {
-    dialog.close();
-});
-
-const myLibrary = [];
+closeAddBookBtn.addEventListener("click", () => dialog.close() );
 
 function Book(name, author, pages, readStatus) {
     this.name = name;
@@ -36,7 +32,6 @@ function getUserInputAndCreateBook(event) {
         readStatus === null) 
             return; 
     
-
     const newBook = new Book(bookName.value,
                              bookAuthor.value,
                              bookPages.value,
@@ -49,7 +44,6 @@ function getUserInputAndCreateBook(event) {
     // TODO build the card and display it
     displayCard( buildCard(newBook) );
     
-
     // so the page does not refresh
     event.preventDefault();
 
@@ -59,6 +53,8 @@ function getUserInputAndCreateBook(event) {
 function buildCard(book) {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
+
+    newCard.dataset.id = book.name;
 
     if(newCard){
         // creating all the html element
@@ -73,8 +69,8 @@ function buildCard(book) {
 
         // assigning values to them
         bookName.innerText = book.name;
-        bookAuthor.innerText = book.author;
-        bookPages.innerText = book.pages;
+        bookAuthor.innerText = "by " + book.author;
+        bookPages.innerText = book.pages + " pages";
 
         readOrNotBtn.innerText = book.readStatus;
         deleteBtn.innerText = "delete";
@@ -162,13 +158,9 @@ function markReadOrUnread(event) {
 }
 
 function deleteBook(event) {
-    
-}
+    const bookCard = event.target.parentNode.parentNode;
 
-// ???
-// i have no clue
-function displayBooks() {
-    myLibrary.forEach(book => {
-        
-    });
+    myLibrary = myLibrary.filter(book => book.name !== bookCard.dataset.id);
+
+    bookCard.remove();
 }
