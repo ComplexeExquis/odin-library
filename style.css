@@ -124,7 +124,7 @@ form > div > label {
 .content-grid {
     align-self: stretch;
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
+    grid-template-columns: repeat( auto-fill, minmax(280px, 1fr) );
     gap: 32px;
     justify-items: center;
 }
@@ -167,6 +167,12 @@ form > div > label {
 .form-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+.book-btn-container > .read {
+    background-color: #25B102;
+}
+.book-btn-container > .unread {
+    background-color: #D20000;
 }
 
 footer {

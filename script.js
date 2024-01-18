@@ -36,16 +36,7 @@ function getUserInputAndCreateBook(event) {
 
     addBookToLibrary(newBook);
     
-    // clearInputs(); ***************8888
-    // emptying the html input element
-    bookName.value = "";
-    bookAuthor.value = "";
-    bookPages.value = "";
-    // unchecking the radio button
-    const radioButtons = document.getElementsByName('read-or-not-input');
-    for (const radio of radioButtons) {
-        radio.checked = false;
-    }
+    clearInputs(); 
 
     // TODO build the card and display it
     displayCard( buildCard(newBook) );
@@ -88,7 +79,17 @@ function buildCard(book) {
 
         bookBtnContainer.classList.add("book-btn-container");
         readOrNotBtn.classList.add("read-or-not-btn");
+
+        if (book.readStatus === "read") 
+            readOrNotBtn.classList.add("read");
+        else
+            readOrNotBtn.classList.add("unread");
+           
         deleteBtn.classList.add("delete-btn");
+
+        // adding functionality to the buttons
+        addReadOrNotBtnFunctionality(readOrNotBtn);
+        addDeleteBtnFunctionality(deleteBtn);
 
         // append
         bookInfo.appendChild(bookName);
@@ -112,14 +113,46 @@ function displayCard(card) {
 }
 
 function clearInputs() {
-    // TODO make it modular?
+    const bookName = document.querySelector("#book-name-input");
+    const bookAuthor =  document.querySelector("#book-author-input");
+    const bookPages = document.querySelector("#book-pages-input");
+
+    // emptying the html input element
+    bookName.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+    // unchecking the radio button
+    const radioButtons = document.getElementsByName('read-or-not-input');
+    for (const radio of radioButtons) {
+        radio.checked = false;
+    }
 }
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
-    console.log(book);
 }
 
+function addReadOrNotBtnFunctionality(readOrNotBtn) {
+    readOrNotBtn.addEventListener("click", markReadOrUnread);
+}
+
+function addDeleteBtnFunctionality(deleteBtn) {
+    
+}
+
+function markReadOrUnread(event) {
+    if (event.target.classList[1] === "read") {
+        event.target.classList.remove("read");
+        event.target.classList.add("unread");   
+    }
+    else {
+        event.target.classList.remove("unread");
+        event.target.classList.add("read");
+    }
+}
+
+// ???
+// i have no clue
 function displayBooks() {
     myLibrary.forEach(book => {
         
