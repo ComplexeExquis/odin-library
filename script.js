@@ -29,6 +29,14 @@ function getUserInputAndCreateBook(event) {
     const bookPages = document.querySelector("#book-pages-input");
     const readStatus = document.querySelector('input[name="read-or-not-input"]:checked');
 
+    // if input is empty, return immediately
+    if (bookName.value === "" ||
+        bookAuthor.value === "" ||
+        bookPages.value === "" ||
+        readStatus === null) 
+            return; 
+    
+
     const newBook = new Book(bookName.value,
                              bookAuthor.value,
                              bookPages.value,
@@ -137,18 +145,24 @@ function addReadOrNotBtnFunctionality(readOrNotBtn) {
 }
 
 function addDeleteBtnFunctionality(deleteBtn) {
-    
+    deleteBtn.addEventListener("click", deleteBook);
 }
 
 function markReadOrUnread(event) {
     if (event.target.classList[1] === "read") {
         event.target.classList.remove("read");
-        event.target.classList.add("unread");   
+        event.target.classList.add("unread");  
+        event.target.innerText = "Unread";
     }
     else {
         event.target.classList.remove("unread");
         event.target.classList.add("read");
+        event.target.innerText = "read";
     }
+}
+
+function deleteBook(event) {
+    
 }
 
 // ???
